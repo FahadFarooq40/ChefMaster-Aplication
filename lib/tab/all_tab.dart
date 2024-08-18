@@ -57,14 +57,7 @@ class AllTab extends StatelessWidget {
                       );
                     },
                     child: Padding(
-                      padding: EdgeInsets.only(
-                        left: index == 0
-                            ? 0
-                            : 20, // Prevent extra padding at start
-                        right: index == items.length - 1
-                            ? 0
-                            : 20, // Prevent extra padding at end
-                      ),
+                      padding: const EdgeInsets.only(right: 10),
                       child: ItemContainer(
                         imagePath: item['imagePath'],
                         time: item['time'],
@@ -87,21 +80,23 @@ class AllTab extends StatelessWidget {
               textColor: Colors.black,
             ),
 
+            const SizedBox(height: 20),
+            const AppText(
+              text: 'New Recipes',
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+              textColor: Colors.black,
+            ),
             const SizedBox(height: 10),
-
-            // New Recipes List
             SizedBox(
               height: 127,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 2,
+                itemCount: 7,
                 itemBuilder: (context, index) {
                   return const Padding(
                     padding: EdgeInsets.only(right: 10),
-                    child: RecipiesContainer(
-                      elevation: 3.0,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                    ),
+                    child: RecipiesContainer(),
                   );
                 },
               ),

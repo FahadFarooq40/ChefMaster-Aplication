@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import 'package:food_recipes/Widgets/signup_controller.dart';
 
 import 'package:get/get.dart';
@@ -27,7 +28,7 @@ class _SigupScreenState extends State<SigupScreen> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    final bool isTablet = size.width >= 670;
+    final bool isTablet = size.width >= 600;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -39,16 +40,16 @@ class _SigupScreenState extends State<SigupScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 const AppText(
-                  text: 'Hello Dear, Create an account',
-                  textColor: AppColors.primaryColor,
-                  fontSize: 30,
+                  text: 'Create an account',
+                  textColor: Colors.black,
+                  fontSize: 20,
                 ),
-                SizedBox(height: size.height * 0.01),
+                SizedBox(height: size.height * 0.015),
                 const AppText(
                   text:
                       'Let’s help you set up your account,\nit won’t take long.',
-                  textColor: AppColors.primaryColor,
-                  fontSize: 18,
+                  textColor: Colors.black,
+                  fontSize: 11,
                   fontWeight: FontWeight.w400,
                 ),
                 SizedBox(height: size.height * 0.02),
@@ -69,7 +70,7 @@ class _SigupScreenState extends State<SigupScreen> {
                 SizedBox(height: size.height * 0.02),
                 const CustomTextFormField(
                   label: 'Confirm Password',
-                  hintText: 'Enter your Confirm Password',
+                  hintText: 'Enter your Password',
                 ),
                 SizedBox(height: size.height * 0.02),
                 Row(
@@ -87,7 +88,7 @@ class _SigupScreenState extends State<SigupScreen> {
                               : size.height * 0.017,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(2),
-                            border: Border.all(color: AppColors.primaryColor),
+                            border: Border.all(color: AppColors.orangeColor),
                             color: loginController.isChecked.value
                                 ? AppColors.primaryColor
                                 : Colors.transparent,
@@ -102,47 +103,44 @@ class _SigupScreenState extends State<SigupScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(width: size.width * 0.02),
-                    const Expanded(
-                      child: AppText(
-                        text: 'Accept terms & Conditions',
-                        textColor: AppColors.primaryColor,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w400,
-                      ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    const AppText(
+                      text: 'Accept terms & Condition',
+                      textColor: AppColors.orangeColor,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w400,
                     ),
                   ],
                 ),
                 SizedBox(height: size.height * 0.02),
-                CustomButton(
-                  onTap: _termsAccepted ? () {} : null,
-                  icon: Icons.arrow_forward,
+                const CustomButton(
                   label: 'Sign Up',
                   height: 55,
+                  icon: Icons.arrow_forward,
                 ),
                 SizedBox(height: size.height * 0.02),
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: Divider(
-                        thickness: isTablet ? 2 : 1,
-                        color: AppColors.lightGreyColor,
-                      ),
-                    ),
+                        child: Divider(
+                      thickness: isTablet ? 2 : 1,
+                      color: AppColors.lightGreyColor,
+                    )),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 5),
                       child: AppText(
                         text: "Or Sign in With",
-                        fontSize: isTablet ? 22 : 14,
+                        fontSize: isTablet ? 20 : 12,
                         textColor: AppColors.lightGreyColor,
                       ),
                     ),
                     Expanded(
-                      child: Divider(
-                        thickness: isTablet ? 2 : 1,
-                        color: AppColors.lightGreyColor,
-                      ),
-                    ),
+                        child: Divider(
+                      thickness: isTablet ? 2 : 1,
+                      color: AppColors.lightGreyColor,
+                    )),
                   ],
                 ),
                 SizedBox(height: size.height * 0.02),
@@ -158,7 +156,7 @@ class _SigupScreenState extends State<SigupScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: size.height * 0.05),
+                SizedBox(height: size.height * 0.04),
                 Align(
                   alignment: Alignment.center,
                   child: RichText(
@@ -166,7 +164,7 @@ class _SigupScreenState extends State<SigupScreen> {
                       text: "Already a member? ",
                       style: const TextStyle(
                         color: Colors.black,
-                        fontSize: 18,
+                        fontSize: 12,
                         fontWeight: FontWeight.w400,
                       ),
                       children: <TextSpan>[
@@ -178,8 +176,8 @@ class _SigupScreenState extends State<SigupScreen> {
                           text: 'signin',
                           style: const TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: 18,
-                            color: AppColors.primaryColor,
+                            fontSize: 12,
+                            color: AppColors.orangeColor,
                           ),
                         ),
                       ],

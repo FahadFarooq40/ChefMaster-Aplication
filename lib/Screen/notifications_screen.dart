@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipes/App%20Assets/app_assets.dart';
 import 'package:food_recipes/NotificationTabContent/read.dart';
-import 'package:food_recipes/Screen/reviews_screen.dart';
-import 'package:food_recipes/Widgets/appbar.dart';
+import 'package:food_recipes/NotificationTabContent/unread.dart';
+import 'package:food_recipes/Widgets/app_text.dart';
 import 'package:get/get.dart';
 
 import '../Controler/notifications_screen_controller.dart';
@@ -17,35 +16,31 @@ class NotificationsScreen extends StatefulWidget {
 }
 
 class _NotificationsScreenState extends State<NotificationsScreen> {
-  List<String> profileType = [
-    "All",
-    "Read",
-    "Reviews Screen",
-  ];
+  List<String> profileType = ["All", "Read", "Unread"];
   final NotificationsController controller = Get.put(NotificationsController());
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-          backgroundColor: AppColors.whiteColor,
-          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            centerTitle: true,
+            title: AppText(
+              text: 'Notifications',
+              textColor: Colors.black,
+              fontSize: 18,
+            ),
+          ),
           body: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Appbar(
-                  title: 'Notifications',
-                  subtitle: 'Stay updated with the latest alerts',
-                  profileImage: AppAssets.profileIcon,
-                ),
-                const SizedBox(height: 20),
                 Obx(() => Container(
                       width: MediaQuery.of(context).size.width,
                       height: 40,
                       child: TabBar(
-                        // isScrollable: true,
                         dividerColor: Colors.transparent,
                         indicator: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
@@ -115,7 +110,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                         return const Read();
 
                       case 2:
-                        return const ReviewsScreen();
+                        return const Unread();
 
                       default:
                         return const SizedBox.shrink();

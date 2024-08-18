@@ -35,13 +35,13 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 const AppText(
                   text: "Hello there, friend!",
-                  textColor: AppColors.primaryColor,
+                  textColor: AppColors.blackColor,
                   fontSize: 30,
                 ),
                 SizedBox(height: size.height * 0.01),
                 const AppText(
                   text: "Welcome back! Ready to cook up something delicious?",
-                  textColor: AppColors.primaryColor,
+                  textColor: AppColors.blackColor,
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
                 ),
@@ -107,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: size.height * 0.09),
+                SizedBox(height: size.height * 0.04),
                 Align(
                   alignment: Alignment.center,
                   child: RichText(
@@ -115,8 +115,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       text: "Don’t have an account? ",
                       style: const TextStyle(
                         color: Colors.black,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
                       ),
                       children: <TextSpan>[
                         TextSpan(
@@ -126,9 +126,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                           text: 'sign up',
                           style: const TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18,
-                            color: AppColors.primaryColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            color: AppColors.orangeColor,
                           ),
                         ),
                       ],

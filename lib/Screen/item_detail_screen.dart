@@ -34,7 +34,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
 
     final ItemDetailScreenController controller =
         Get.put(ItemDetailScreenController());
-    List<String> detailType = ["Chef's Recipes", "Reviews"];
+    List<String> detailType = ["Ingrident", "Procedure"];
     return DefaultTabController(
       length: 2,
       child: Scaffold(

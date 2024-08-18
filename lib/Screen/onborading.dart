@@ -13,11 +13,10 @@ class Onboarding extends StatefulWidget {
   State<Onboarding> createState() => _OnboardingState();
 }
 
-class _OnboardingState extends State<Onboarding>
-    with SingleTickerProviderStateMixin {
+class _OnboardingState extends State<Onboarding> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Get.toNamed(RouteName.loginscreen);
     });
     super.initState();
@@ -28,6 +27,7 @@ class _OnboardingState extends State<Onboarding>
     return Scaffold(
       body: Stack(
         children: [
+          // Background image container
           Container(
             width: double.infinity,
             height: double.infinity,
@@ -47,8 +47,8 @@ class _OnboardingState extends State<Onboarding>
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Colors.black.withOpacity(0.6),
-                  Colors.black,
+                  Colors.black.withOpacity(0.3), // Adjust opacity as needed
+                  Colors.black, // Adjust as needed
                 ],
               ),
             ),

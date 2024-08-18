@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipes/ProfileTabContent/recipe_tab.dart';
+import 'package:food_recipes/ProfileTabContent/tag_tab.dart';
+import 'package:food_recipes/ProfileTabContent/vidieo-tab.dart';
+import 'package:food_recipes/Widgets/custom_popup_menu.dart';
 
 import 'package:get/get.dart';
 
@@ -6,10 +10,6 @@ import '../App Assets/app_assets.dart';
 import '../Controler/profile_screen_controller.dart';
 import '../Widgets/app_text.dart';
 import '../Widgets/color.dart';
-import '../Widgets/custom_popup_menu.dart';
-import '../tab/all_tab.dart';
-import '../tab/indian_tab.dart';
-import '../tab/video_tab.dart.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -19,7 +19,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  List<String> profileType = ["All Recipe", "Indian", "Video"];
+  List<String> profileType = ["Recipe", "Videos", "Tag"];
   final ProfileScreencontroller controller = Get.put(ProfileScreencontroller());
   @override
   Widget build(BuildContext context) {
@@ -28,18 +28,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-          backgroundColor: AppColors.whiteColor,
+          backgroundColor: Colors.white,
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: AppColors.whiteColor,
             centerTitle: true,
             title: const AppText(
-              text: 'Chef’s Corner',
+              text: 'Profile',
               textColor: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+              fontSize: 18,
             ),
-            actions: const [CustomPopupMenu()],
+            actions: const [
+              CustomPopupMenu(),
+            ],
           ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -85,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           textColor: AppColors.greyColor,
                         ),
                         AppText(
-                          text: '2.3M',
+                          text: '2.5M',
                           fontSize: 20,
                           textColor: Colors.black,
                         ),
@@ -112,7 +112,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 20,
                 ),
                 const AppText(
-                  text: 'Fahad Farooq',
+                  text: 'Afuwape Abiodun',
                   textColor: Colors.black,
                   fontSize: 16,
                 ),
@@ -120,20 +120,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 2,
                 ),
                 const AppText(
-                  text: 'Chef Fahad Farooq',
+                  text: 'Chef',
                   textColor: Colors.grey,
-                  fontSize: 14,
+                  fontSize: 11,
                   fontWeight: FontWeight.w400,
                 ),
                 const SizedBox(
-                  height: 6,
+                  height: 10,
                 ),
                 const AppText(
-                  text: 'Private Chef\n'
-                      'Crafting culinary experiences 🍽️\n'
-                      'Learn More...',
+                  text: 'Private Chef \n'
+                      'Passionate about food and life 🥘🍲🍝🍱\n'
+                      'More...',
                   textColor: Colors.grey,
-                  fontSize: 14,
+                  fontSize: 11,
                   fontWeight: FontWeight.w400,
                 ),
                 const SizedBox(
@@ -143,6 +143,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       width: MediaQuery.of(context).size.width,
                       height: 40,
                       child: TabBar(
+                        // isScrollable: true,
                         dividerColor: Colors.transparent,
                         indicator: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
@@ -210,13 +211,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Obx(() {
                     switch (controller.selectedIndex) {
                       case 0:
-                        return const AllTab();
+                        return const RecipeTab();
                       case 1:
-                        return const IndianTab();
-
+                        return const VideosTab();
                       case 2:
-                        return const VideoTab();
-
+                        return const TagTab();
                       default:
                         return const SizedBox.shrink();
                     }

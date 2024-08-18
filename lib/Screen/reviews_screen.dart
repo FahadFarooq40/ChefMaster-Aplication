@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipes/Widgets/custom_popup_menu.dart';
 import '../Widgets/app_text.dart';
 import '../Widgets/color.dart';
 import '../Widgets/reviews_container.dart';
@@ -36,6 +37,11 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
+      appBar: AppBar(
+        actions: const [
+          CustomPopupMenu(),
+        ],
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(

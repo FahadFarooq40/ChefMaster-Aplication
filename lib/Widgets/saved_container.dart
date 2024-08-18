@@ -97,7 +97,7 @@ class SavedContainer extends StatelessWidget {
                       children: [
                         SvgPicture.asset(
                           AppAssets.timerIcon,
-                          color: AppColors.primaryColor,
+                          color: AppColors.whiteColor,
                           height: 20.0,
                           width: 20.0,
                         ),

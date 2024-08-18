@@ -98,10 +98,7 @@ class IndianTab extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return const Padding(
                     padding: EdgeInsets.only(right: 10),
-                    child: RecipiesContainer(
-                      elevation: 3.0,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                    ),
+                    child: RecipiesContainer(),
                   );
                 },
               ),

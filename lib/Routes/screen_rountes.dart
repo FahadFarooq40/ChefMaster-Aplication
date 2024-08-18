@@ -1,17 +1,16 @@
 import 'package:food_recipes/Routes/route_name.dart';
+import 'package:food_recipes/Screen/bottom_navigation_bar.dart';
+import 'package:food_recipes/Screen/home_detail_screen.dart';
+import 'package:food_recipes/Screen/home_screen.dart';
+import 'package:food_recipes/Screen/item_detail_screen.dart';
+import 'package:food_recipes/Screen/login_screen.dart';
+import 'package:food_recipes/Screen/notifications_screen.dart';
+import 'package:food_recipes/Screen/onborading.dart';
+import 'package:food_recipes/Screen/profile.dart';
+import 'package:food_recipes/Screen/reviews_screen.dart';
+import 'package:food_recipes/Screen/saved_screen.dart';
+import 'package:food_recipes/Screen/sign_up.dart';
 import 'package:get/get.dart';
-
-import '../Screen/bottom_navigation_bar.dart';
-import '../Screen/home_detail_screen.dart';
-import '../Screen/home_screen.dart';
-import '../Screen/item_detail_screen.dart';
-import '../Screen/login_screen.dart';
-import '../Screen/notifications_screen.dart';
-import '../Screen/onborading.dart';
-import '../Screen/profile.dart';
-import '../Screen/reviews_screen.dart';
-import '../Screen/saved_screen.dart';
-import '../Screen/sign_up.dart';
 
 class AppRoutes {
   static appRoutes() => [
@@ -33,7 +32,7 @@ class AppRoutes {
         ),
         GetPage(
           name: RouteName.bottomNavigationBar,
-          page: () => const BottomNavigationBarScreen(),
+          page: () => const BottomNavigationBar(),
         ),
         GetPage(
           name: RouteName.savedScreen,

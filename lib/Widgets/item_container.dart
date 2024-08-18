@@ -32,7 +32,7 @@ class ItemContainer extends StatelessWidget {
           right: 0,
           bottom: 0,
           child: Container(
-            padding: const EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: Colors.grey.shade200,
@@ -67,11 +67,11 @@ class ItemContainer extends StatelessWidget {
                       fontSize: 15,
                     ),
                     Container(
-                      width: 25,
-                      height: 25,
+                      width: 20,
+                      height: 20,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(13),
-                        color: AppColors.whiteColor,
+                        color: Colors.white,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(2.0),
@@ -111,7 +111,9 @@ class ItemContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SvgPicture.asset(AppAssets.starIcon),
-                const SizedBox(width: 3),
+                const SizedBox(
+                  width: 3,
+                ),
                 AppText(
                   text: rating?.toString() ?? 'N/A', // Handle null rating
                   fontWeight: FontWeight.w200,

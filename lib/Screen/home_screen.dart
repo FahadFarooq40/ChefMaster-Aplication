@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipes/tab/italian_tab.dart';
 
 import 'package:get/get.dart';
 
@@ -12,7 +13,6 @@ import '../tab/all_tab.dart';
 import '../tab/asian_tab.dart';
 import '../tab/chines_tab.dart';
 import '../tab/indian_tab.dart';
-import '../tab/video_tab.dart.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  List<String> dishType = ["All", "Indian", "Video", 'chines', 'Asian'];
+  List<String> dishType = ["All", "Indian", "Italian", 'chines', 'Asian'];
   final HomeScreenController controller = Get.put(HomeScreenController());
   final TextEditingController _searchController = TextEditingController();
   bool _isSearchFocused = false;
@@ -44,7 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: AppColors.whiteColor,
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+            padding: const EdgeInsets.symmetric(
+              vertical: 20,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -129,39 +131,47 @@ class _HomeScreenState extends State<HomeScreen> {
                 AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),
                   child: _isSearchFocused
-                      ? Column(
-                          children: [
-                            Container(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 20),
-                              height: 40,
-                              child: Row(
-                                children: [
-                                  const AppText(
-                                    text: 'Recent Searches',
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 16,
-                                    textColor: Colors.black,
-                                  ),
-                                  IconButton(
-                                    icon: const Icon(Icons.clear),
-                                    onPressed: () {
-                                      setState(() {
-                                        _isSearchFocused = false;
-                                        _searchController.clear();
-                                      });
-                                    },
-                                  )
-                                ],
+                      ? Padding(
+                          padding: const EdgeInsets.all(
+                              7.0), // Add padding around the entire column
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(
+                                    bottom:
+                                        8.0), // Add margin below the container
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                height: 40,
+                                child: Row(
+                                  children: [
+                                    const AppText(
+                                      text: 'Recent Searches',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
+                                      textColor: Colors.black,
+                                    ),
+                                    IconButton(
+                                      icon: const Icon(Icons.clear),
+                                      onPressed: () {
+                                        setState(() {
+                                          _isSearchFocused = false;
+                                          _searchController.clear();
+                                        });
+                                      },
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                            ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: 1,
-                                itemBuilder: (index, context) {
-                                  return const RecentSearchContainer();
-                                }),
-                          ],
+                              ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: 1,
+                                  itemBuilder: (context, index) {
+                                    // Swapped context and index
+                                    return const RecentSearchContainer();
+                                  }),
+                            ],
+                          ),
                         )
                       : Obx(
                           () => Container(
@@ -246,7 +256,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             case 1:
                               return const IndianTab();
                             case 2:
-                              return const VideoTab();
+                              return const ItalianTab();
                             case 3:
                               return const chinesTab();
                             case 4:

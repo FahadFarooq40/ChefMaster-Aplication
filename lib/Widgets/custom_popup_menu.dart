@@ -125,7 +125,7 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
                   children: [
                     const SizedBox(width: 7),
                     const AppText(
-                      text: 'FoodAplication/cheffahadfarooq',
+                      text: 'ChefMaster-Aplication',
                       textColor: Colors.black,
                     ),
                     const Spacer(),

@@ -1,19 +1,20 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import '../Widgets/color.dart';
-import 'home_screen.dart';
-import 'notifications_screen.dart';
-import 'profile.dart';
-import 'saved_screen.dart';
+import 'package:food_recipes/Screen/home_screen.dart';
+import 'package:food_recipes/Screen/profile.dart';
+import 'package:food_recipes/Screen/saved_screen.dart';
+import 'package:food_recipes/Widgets/color.dart';
 
-class BottomNavigationBarScreen extends StatefulWidget {
-  const BottomNavigationBarScreen({super.key});
+import 'notifications_screen.dart';
+
+class BottomNavigationBar extends StatefulWidget {
+  const BottomNavigationBar({super.key});
 
   @override
-  State<BottomNavigationBarScreen> createState() =>
-      _BottomNavigationBarScreenState();
+  State<BottomNavigationBar> createState() => _BottomNavigationBarState();
 }
 
-class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
+class _BottomNavigationBarState extends State<BottomNavigationBar> {
   int _bottomNavIndex = 0;
 
   final List<Widget> _screens = [
@@ -21,91 +22,47 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
     const SavedScreen(),
     const NotificationsScreen(),
     const ProfileScreen(),
-    // Add other screens here
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: _screens[_bottomNavIndex],
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: AppColors.primaryColor,
-        elevation: 8,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15),
+      floatingActionButton: Container(
+        width: 56.0, // Width and height should be equal to create a circle
+        height: 56.0,
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          color: AppColors.primaryColor,
         ),
-        child: const Icon(Icons.add, color: Colors.white, size: 30),
+        child: FloatingActionButton(
+          highlightElevation: 0.0,
+          splashColor: Colors.transparent,
+          onPressed: () {
+            // Add your action for the floating action button
+          },
+          child: const Icon(Icons.add, color: Colors.white),
+          backgroundColor:
+              Colors.transparent, // Make the background color transparent
+          elevation: 0, // Remove shadow
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        color: Colors.white,
-        elevation: 8,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Expanded(
-              child: IconButton(
-                icon: Icon(Icons.home_filled,
-                    size: 35,
-                    color: _bottomNavIndex == 0
-                        ? AppColors.primaryColor
-                        : AppColors.blackColor),
-                onPressed: () {
-                  setState(() {
-                    _bottomNavIndex = 0;
-                  });
-                },
-              ),
-            ),
-            Expanded(
-              child: IconButton(
-                icon: Icon(Icons.bookmark_border_outlined,
-                    size: 35,
-                    color: _bottomNavIndex == 1
-                        ? AppColors.primaryColor
-                        : AppColors.blackColor),
-                onPressed: () {
-                  setState(() {
-                    _bottomNavIndex = 1;
-                  });
-                },
-              ),
-            ),
-            const SizedBox(width: 40),
-            Expanded(
-              child: IconButton(
-                icon: Icon(Icons.notifications_outlined,
-                    size: 35,
-                    color: _bottomNavIndex == 2
-                        ? AppColors.primaryColor
-                        : AppColors.blackColor),
-                onPressed: () {
-                  setState(() {
-                    _bottomNavIndex = 2;
-                  });
-                },
-              ),
-            ),
-            Expanded(
-              child: IconButton(
-                icon: Icon(Icons.person_outline_outlined,
-                    size: 35,
-                    color: _bottomNavIndex == 3
-                        ? AppColors.primaryColor
-                        : AppColors.blackColor),
-                onPressed: () {
-                  setState(() {
-                    _bottomNavIndex = 3;
-                  });
-                },
-              ),
-            ),
-          ],
-        ),
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+        activeColor: AppColors.primaryColor,
+        inactiveColor: AppColors.lightGreyColor,
+        icons: const [
+          Icons.home_outlined,
+          Icons.save_alt_sharp,
+          Icons.notifications_outlined,
+          Icons.person_outline_outlined,
+        ],
+        activeIndex: _bottomNavIndex,
+        gapLocation: GapLocation.center,
+        notchSmoothness: NotchSmoothness.softEdge,
+        onTap: (index) => setState(() => _bottomNavIndex = index),
       ),
+      body: _screens[_bottomNavIndex],
     );
   }
 }

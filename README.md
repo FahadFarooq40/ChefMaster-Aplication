@@ -3,7 +3,7 @@
 🚀 **Excited to unveil my latest creation:** ChefMaster – a state-of-the-art, Flutter-based food application designed to elevate your culinary journey to new heights. Whether you're an aspiring home cook or a seasoned professional chef, ChefMaster is your ultimate kitchen companion. With recipes, meal planning, and kitchen management at your fingertips, you'll discover, create, and master dishes like never before through an intuitive and visually stunning interface. Stay tuned for more delicious details! 🍽️
 
 ### Screenshot
-![Food Application](https://github.com/user-attachments/assets/e1d517f1-49c9-4366-8018-7305d1d077d8)
+![Blue Modern Mobile Application Presentation](https://github.com/user-attachments/assets/cc11a5b3-fad5-4a49-aa57-5ec628cccbd9)
 
 ## Getting Started
 
